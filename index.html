@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NULL_BYTE — Hacker Streetwear</title>
+<link rel="stylesheet" href="null_byte_style.css">
+</head>
+<body>
+
+<!-- Cursors -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- ══ NAV ══ -->
+<nav id="nav">
+  <a class="nav-logo" href="#">
+    NULL<span>_</span>BYTE
+    <span class="nav-logo-tag">v2.1.0-RELEASE</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#collection">Collection</a></li>
+    <li><a href="#lookbook">Lookbook</a></li>
+    <li><a href="#manifesto">Manifesto</a></li>
+    <li><a href="#">Stockists</a></li>
+  </ul>
+  <div class="nav-actions">
+    <a href="#">Search</a>
+    <button class="cart-icon" id="cartBtn">
+      Bag
+      <span class="cart-badge" id="cartBadge">0</span>
+    </button>
+    <button class="nav-hamburger" id="navHamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile Nav Drawer -->
+<div class="mobile-nav-overlay" id="mobileNavOverlay"></div>
+<div class="mobile-nav" id="mobileNav">
+  <ul>
+    <li><a href="#collection" id="mobileNavClose1">Collection</a></li>
+    <li><a href="#lookbook" id="mobileNavClose2">Lookbook</a></li>
+    <li><a href="#manifesto" id="mobileNavClose3">Manifesto</a></li>
+    <li><a href="#">Stockists</a></li>
+  </ul>
+</div>
+
+<!-- ══ HERO ══ -->
+<section class="hero">
+  <div class="hero-glitch-bg"></div>
+  <div class="hero-left">
+    <p class="hero-eyebrow">SS 2025 — BREACH COLLECTION</p>
+    <h1 class="hero-title">
+      <span class="glitch" data-text="WEAR">WEAR</span>
+      <br>
+      <span class="accent">THE</span>
+      <br>
+      <span class="glitch" data-text="VIRUS">VIRUS</span>
+      <span class="sub">STREETWEAR FOR THE DIGITAL AGE</span>
+    </h1>
+    <p class="hero-desc">
+      // Clothing forged in the aesthetic of<br>
+      // digital warfare. Binary. Brutal. Real.<br>
+      // No firewall can stop this drop.
+    </p>
+    <div class="hero-cta">
+      <button class="btn-primary" onclick="document.getElementById('collection').scrollIntoView({behavior:'smooth'})">EXECUTE DROP</button>
+      <a class="btn-ghost" href="#lookbook">BREACH LOOKBOOK</a>
+    </div>
+    <div class="hero-stat-row">
+      <div class="hero-stat">
+        <div class="hero-stat-num">48H</div>
+        <div class="hero-stat-label">Drop Timer</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">6</div>
+        <div class="hero-stat-label">Pieces</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">0</div>
+        <div class="hero-stat-label">Traces Left</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <canvas id="matrixCanvas"></canvas>
+    <div class="hero-right-content">
+      <div class="hero-featured-card">
+        <img
+          class="hero-card-img"
+          src="https://i.pinimg.com/originals/f4/b3/e2/f4b3e2d9a1c4e6f8b2d5a7c9e1f3b5d7.jpg"
+          onerror="this.src='https://images-na.ssl-images-amazon.com/images/I/71r8QFLm5IL._AC_UX679_.jpg'; this.onerror=null;"
+          alt="Virus Hoodie"
+        >
+        <div class="hero-card-body">
+          <div class="hero-card-name">VIRUS.EXE HOODIE</div>
+          <div class="hero-card-price">$89</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    <span class="scroll-text">Scroll</span>
+  </div>
+</section>
+
+<!-- ══ TICKER ══ -->
+<div class="ticker">
+  <div class="ticker-track">
+    <span class="ticker-item hot">NEW DROP LIVE</span>
+    <span class="ticker-sep">◈</span>
+    <span class="ticker-item">Free shipping on orders $150+</span>
+    <span class="ticker-sep">◈</span>
+    <span class="ticker-item hot">BREACH COLLECTION SS2025</span>
+    <span class="ticker-sep">◈</span>
+    <span class="ticker-item">Crafted in limited quantities</span>
+    <span class="ticker-sep">◈</span>
+    <span class="ticker-item">100% Organic Heavyweight Cotton</span>
+    <span class="ticker-sep">◈</span>
+    <span class="ticker-item hot">ZERO TRACES LEFT BEHIND</span>
+    <span class="ticker-sep">◈</span>
+    <span class="ticker-item">Free shipping on orders $150+</span>
+    <span class="ticker-sep">◈</span>
+    <span class="ticker-item hot">NEW DROP LIVE</span>
+    <span class="ticker-sep">◈</span>
+    <span class="ticker-item">Free shipping on orders $150+</span>
+    <span class="ticker-sep">◈</span>
+    <span class="ticker-item hot">BREACH COLLECTION SS2025</span>
+    <span class="ticker-sep">◈</span>
+    <span class="ticker-item">Crafted in limited quantities</span>
+    <span class="ticker-sep">◈</span>
+    <span class="ticker-item">100% Organic Heavyweight Cotton</span>
+    <span class="ticker-sep">◈</span>
+    <span class="ticker-item hot">ZERO TRACES LEFT BEHIND</span>
+    <span class="ticker-sep">◈</span>
+  </div>
+</div>
+
+<!-- ══ COLLECTION ══ -->
+<section class="collection" id="collection">
+  <div class="collection-header reveal">
+    <div>
+      <p class="section-eyebrow">New Arrivals</p>
+      <h2 class="section-title">BREACH<br>COLLECTION</h2>
+    </div>
+    <div class="collection-meta">6 pieces &nbsp;·&nbsp; <a href="#">View all</a></div>
+  </div>
+
+  <div class="filter-tabs reveal reveal-d1">
+    <button class="filter-tab active">ALL</button>
+    <button class="filter-tab">HOODIES</button>
+    <button class="filter-tab">TEES</button>
+    <button class="filter-tab">OUTERWEAR</button>
+    <button class="filter-tab">BOTTOMS</button>
+  </div>
+
+  <div class="products-grid">
+
+    <!-- Product 1 -->
+    <div class="product-card reveal">
+      <div class="product-img">
+        <img
+          src="https://i5.walmartimages.com/asr/5e5e5e5e-5e5e-5e5e-5e5e-5e5e5e5e5e5e.jpg"
+          onerror="this.src='https://images-na.ssl-images-amazon.com/images/I/71XNqEuHk2L._AC_UX679_.jpg'; this.onerror=null;"
+          alt="Binary Code Hoodie"
+          loading="lazy"
+        >
+        <div class="product-corner"></div>
+        <div class="product-corner-bl"></div>
+        <span class="product-badge">NEW</span>
+        <div class="product-overlay">
+          <span class="product-code">SKU: NB-HD-001</span>
+          <button class="product-quick-add"
+            onclick="addToCart('BINARY.EXE HOODIE','$89','https://images-na.ssl-images-amazon.com/images/I/71XNqEuHk2L._AC_UX679_.jpg','NB-HD-001')">
+            ADD TO BAG
+          </button>
+        </div>
+      </div>
+      <div class="product-info">
+        <p class="product-name">BINARY.EXE HOODIE</p>
+        <div class="product-meta-row">
+          <span class="product-price">$89</span>
+          <span class="product-sku">NB-HD-001</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Product 2 -->
+    <div class="product-card reveal reveal-d1">
+      <div class="product-img">
+        <img
+          src="https://ae01.alicdn.com/kf/Hf9c0d5a2c6e841e6a3b6f1e0d2c3b4a5F.jpg"
+          onerror="this.src='https://m.media-amazon.com/images/I/71gHJGqmVaL._AC_UX679_.jpg'; this.onerror=null;"
+          alt="Cyberpunk Techwear Jacket"
+          loading="lazy"
+        >
+        <div class="product-corner"></div>
+        <div class="product-corner-bl"></div>
+        <span class="product-badge red">LIMITED</span>
+        <div class="product-overlay">
+          <span class="product-code">SKU: NB-JK-002</span>
+          <button class="product-quick-add"
+            onclick="addToCart('ZERO-DAY TECHWEAR JACKET','$179','https://m.media-amazon.com/images/I/71gHJGqmVaL._AC_UX679_.jpg','NB-JK-002')">
+            ADD TO BAG
+          </button>
+        </div>
+      </div>
+      <div class="product-info">
+        <p class="product-name">ZERO-DAY TECHWEAR JACKET</p>
+        <div class="product-meta-row">
+          <span class="product-price">$179</span>
+          <span class="product-sku">NB-JK-002</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Product 3 -->
+    <div class="product-card reveal reveal-d2">
+      <div class="product-img">
+        <img
+          src="https://ae01.alicdn.com/kf/S1234567890abcdef.jpg"
+          onerror="this.src='https://m.media-amazon.com/images/I/71q2dHGGWmL._AC_UX679_.jpg'; this.onerror=null;"
+          alt="Glitch Graphic Tee"
+          loading="lazy"
+        >
+        <div class="product-corner"></div>
+        <div class="product-corner-bl"></div>
+        <span class="product-badge">BESTSELLER</span>
+        <div class="product-overlay">
+          <span class="product-code">SKU: NB-TE-003</span>
+          <button class="product-quick-add"
+            onclick="addToCart('GLITCH_ART TEE','$59','https://m.media-amazon.com/images/I/71q2dHGGWmL._AC_UX679_.jpg','NB-TE-003')">
+            ADD TO BAG
+          </button>
+        </div>
+      </div>
+      <div class="product-info">
+        <p class="product-name">GLITCH_ART TEE</p>
+        <div class="product-meta-row">
+          <span class="product-price">$59</span>
+          <span class="product-sku">NB-TE-003</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Product 4 -->
+    <div class="product-card reveal reveal-d3">
+      <div class="product-img">
+        <img
+          src="https://ae01.alicdn.com/kf/abcdef1234567890.jpg"
+          onerror="this.src='https://m.media-amazon.com/images/I/71R2VtimxqL._AC_UX679_.jpg'; this.onerror=null;"
+          alt="Malware Cargo Pants"
+          loading="lazy"
+        >
+        <div class="product-corner"></div>
+        <div class="product-corner-bl"></div>
+        <div class="product-overlay">
+          <span class="product-code">SKU: NB-PT-004</span>
+          <button class="product-quick-add"
+            onclick="addToCart('MALWARE CARGO PANTS','$110','https://m.media-amazon.com/images/I/71R2VtimxqL._AC_UX679_.jpg','NB-PT-004')">
+            ADD TO BAG
+          </button>
+        </div>
+      </div>
+      <div class="product-info">
+        <p class="product-name">MALWARE CARGO PANTS</p>
+        <div class="product-meta-row">
+          <span class="product-price">$110</span>
+          <span class="product-sku">NB-PT-004</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Product 5 -->
+    <div class="product-card reveal">
+      <div class="product-img">
+        <img
+          src="https://i.pinimg.com/originals/aa/bb/cc/aabbcc1234567890.jpg"
+          onerror="this.src='https://m.media-amazon.com/images/I/71pWZMQhFkL._AC_UX679_.jpg'; this.onerror=null;"
+          alt="Skeleton Key Hoodie"
+          loading="lazy"
+        >
+        <div class="product-corner"></div>
+        <div class="product-corner-bl"></div>
+        <span class="product-badge">NEW</span>
+        <div class="product-overlay">
+          <span class="product-code">SKU: NB-HD-005</span>
+          <button class="product-quick-add"
+            onclick="addToCart('SKELETON_KEY HOODIE','$95','https://m.media-amazon.com/images/I/71pWZMQhFkL._AC_UX679_.jpg','NB-HD-005')">
+            ADD TO BAG
+          </button>
+        </div>
+      </div>
+      <div class="product-info">
+        <p class="product-name">SKELETON_KEY HOODIE</p>
+        <div class="product-meta-row">
+          <span class="product-price">$95</span>
+          <span class="product-sku">NB-HD-005</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Product 6 -->
+    <div class="product-card reveal reveal-d1">
+      <div class="product-img">
+        <img
+          src="https://i.pinimg.com/originals/dd/ee/ff/ddeeff1234567890.jpg"
+          onerror="this.src='https://m.media-amazon.com/images/I/71eJiHBrE6L._AC_UX679_.jpg'; this.onerror=null;"
+          alt="Rootkit Overcoat"
+          loading="lazy"
+        >
+        <div class="product-corner"></div>
+        <div class="product-corner-bl"></div>
+        <span class="product-badge red">FINAL UNITS</span>
+        <div class="product-overlay">
+          <span class="product-code">SKU: NB-OC-006</span>
+          <button class="product-quick-add"
+            onclick="addToCart('ROOTKIT OVERCOAT','$179','https://m.media-amazon.com/images/I/71eJiHBrE6L._AC_UX679_.jpg','NB-OC-006')">
+            ADD TO BAG
+          </button>
+        </div>
+      </div>
+      <div class="product-info">
+        <p class="product-name">ROOTKIT OVERCOAT</p>
+        <div class="product-meta-row">
+          <span class="product-price">$179</span>
+          <span class="product-sku">NB-OC-006</span>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /products-grid -->
+</section>
+
+<!-- ══ CALLOUT ══ -->
+<div class="callout">
+  <div class="callout-bg"></div>
+  <p class="callout-eyebrow reveal">// SYSTEM MESSAGE</p>
+  <h2 class="callout-title reveal reveal-d1">
+    <span class="green">INFECTED.</span><br>
+    STAY<br>
+    <span class="red">ANONYMOUS.</span>
+  </h2>
+  <p class="callout-sub reveal reveal-d2">
+    // every garment is a statement.<br>
+    // every thread is a payload.<br>
+    // you are the exploit.
+  </p>
+  <button class="btn-primary reveal reveal-d3">ACCESS THE ARCHIVE</button>
+</div>
+
+<!-- ══ LOOKBOOK ══ -->
+<section class="lookbook" id="lookbook">
+  <div class="lookbook-header reveal">
+    <p class="section-eyebrow">SS 2025 Campaign</p>
+    <h2 class="section-title">BREACH<br>LOOKBOOK</h2>
+  </div>
+  <div class="lookbook-grid">
+
+    <div class="look-item">
+      <img
+        class="look-img"
+        src="https://i.pinimg.com/originals/c4/b3/a2/c4b3a21234567890abcd.jpg"
+        onerror="this.src='https://images.unsplash.com/photo-1509631179647-0177331693ae?w=800'; this.onerror=null;"
+        alt="Look 01"
+        loading="lazy"
+      >
+      <div class="look-overlay">
+        <div class="look-label">Look_01.jpg</div>
+        <div class="look-name">THE HOODIE DROP</div>
+      </div>
+      <div class="look-corner"></div>
+    </div>
+
+    <div class="look-item">
+      <img
+        class="look-img"
+        src="https://i.pinimg.com/originals/e5/d4/c3/e5d4c31234567890abcd.jpg"
+        onerror="this.src='https://images.unsplash.com/photo-1523381210434-271e8be1f52b?w=600'; this.onerror=null;"
+        alt="Look 02"
+        loading="lazy"
+      >
+      <div class="look-overlay">
+        <div class="look-label">Look_02.jpg</div>
+        <div class="look-name">GLITCH TEE</div>
+      </div>
+      <div class="look-corner"></div>
+    </div>
+
+    <div class="look-item">
+      <img
+        class="look-img"
+        src="https://i.pinimg.com/originals/f6/e5/d4/f6e5d41234567890abcd.jpg"
+        onerror="this.src='https://images.unsplash.com/photo-1551537482-f2075a1d41f2?w=600'; this.onerror=null;"
+        alt="Look 03"
+        loading="lazy"
+      >
+      <div class="look-overlay">
+        <div class="look-label">Look_03.jpg</div>
+        <div class="look-name">TECHWEAR CARGO</div>
+      </div>
+      <div class="look-corner"></div>
+    </div>
+
+    <div class="look-item">
+      <img
+        class="look-img"
+        src="https://i.pinimg.com/originals/a7/b6/c5/a7b6c51234567890abcd.jpg"
+        onerror="this.src='https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600'; this.onerror=null;"
+        alt="Look 04"
+        loading="lazy"
+      >
+      <div class="look-overlay">
+        <div class="look-label">Look_04.jpg</div>
+        <div class="look-name">ZERO-DAY JACKET</div>
+      </div>
+      <div class="look-corner"></div>
+    </div>
+
+    <div class="look-item">
+      <img
+        class="look-img"
+        src="https://i.pinimg.com/originals/b8/c7/d6/b8c7d61234567890abcd.jpg"
+        onerror="this.src='https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=600'; this.onerror=null;"
+        alt="Look 05"
+        loading="lazy"
+      >
+      <div class="look-overlay">
+        <div class="look-label">Look_05.jpg</div>
+        <div class="look-name">ROOTKIT LAYER</div>
+      </div>
+      <div class="look-corner"></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══ MANIFESTO ══ -->
+<section class="manifesto" id="manifesto">
+  <div class="manifesto-inner">
+    <div class="reveal">
+      <h2 class="manifesto-quote">
+        Clothing for those who<br>
+        <span class="accent">move unseen</span><br>
+        through the system.
+      </h2>
+      <p class="manifesto-body">
+        // NULL_BYTE was founded by hackers, artists,<br>
+        // and architects of digital chaos. Every piece<br>
+        // starts as code. Every stitch is an exploit.<br>
+        // Heavyweight 400gsm. Made to outlast the grid.
+      </p>
+      <ul class="manifesto-list">
+        <li><span class="list-icon">▶</span> 400gsm heavyweight organic cotton</li>
+        <li><span class="list-icon">▶</span> Screen-printed with water-based inks</li>
+        <li><span class="list-icon">▶</span> Ethically produced — Portugal & Japan</li>
+        <li><span class="list-icon">▶</span> Carbon-neutral shipping worldwide</li>
+      </ul>
+    </div>
+    <div class="manifesto-visual reveal reveal-d2">
+      <div class="mat-block">
+        <img
+          src="https://i.pinimg.com/originals/c1/b2/a3/c1b2a31234567890.jpg"
+          onerror="this.src='https://images.unsplash.com/photo-1516762689617-e1cffcef479d?w=400'; this.onerror=null;"
+          alt="Fabric"
+          loading="lazy"
+        >
+        <div class="mat-label">BINARY WEAVE</div>
+      </div>
+      <div class="mat-block">
+        <img
+          src="https://i.pinimg.com/originals/d2/c3/b4/d2c3b41234567890.jpg"
+          onerror="this.src='https://images.unsplash.com/photo-1620799139834-6b8f844fbe61?w=400'; this.onerror=null;"
+          alt="Stitching"
+          loading="lazy"
+        >
+        <div class="mat-label">VOID BLACK</div>
+      </div>
+      <div class="mat-block">
+        <img
+          src="https://i.pinimg.com/originals/e3/d4/c5/e3d4c51234567890.jpg"
+          onerror="this.src='https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=400'; this.onerror=null;"
+          alt="Print"
+          loading="lazy"
+        >
+        <div class="mat-label">MATRIX PRINT</div>
+      </div>
+      <div class="mat-block">
+        <img
+          src="https://i.pinimg.com/originals/f4/e5/d6/f4e5d61234567890.jpg"
+          onerror="this.src='https://images.unsplash.com/photo-1584464491033-06628f3a6b7b?w=400'; this.onerror=null;"
+          alt="Cargo"
+          loading="lazy"
+        >
+        <div class="mat-label">STEALTH CARGO</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ TERMINAL ══ -->
+<section class="terminal-section">
+  <div class="terminal reveal">
+    <div class="terminal-bar">
+      <div class="t-dot red"></div>
+      <div class="t-dot yellow"></div>
+      <div class="t-dot green"></div>
+      <span class="terminal-title">null_byte_store — bash — 80×24</span>
+    </div>
+    <div class="terminal-body" id="termBody">
+      <div class="t-line"><span class="t-green">null_byte@store</span><span class="t-white">:~$</span> cat README.txt</div>
+      <div class="t-line t-green">&nbsp;&nbsp;Welcome to NULL_BYTE. You are already infected.</div>
+      <div class="t-line">&nbsp;</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ NEWSLETTER ══ -->
+<div class="newsletter">
+  <div class="newsletter-left reveal">
+    <p class="newsletter-eyebrow">// STAY CONNECTED</p>
+    <h3 class="newsletter-title">JOIN THE NETWORK.</h3>
+    <p class="newsletter-sub">
+      New drops, exploit alerts, early access.<br>
+      We don't spam. We infiltrate.
+    </p>
+  </div>
+  <div class="newsletter-form reveal reveal-d2">
+    <input type="email" id="newsletterInput" class="newsletter-input" placeholder="Your email address">
+    <button class="newsletter-btn" id="newsletterBtn">EXECUTE</button>
+  </div>
+</div>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="footer-logo">NULL<span>_</span>BYTE</div>
+      <p class="footer-tag">
+        // Streetwear for the digital underground.<br>
+        // No traces. No refunds on identity.<br>
+        // Est. 2019 — somewhere on the internet.
+      </p>
+    </div>
+    <div class="footer-col">
+      <h4>// Shop</h4>
+      <ul>
+        <li><a href="#">New Arrivals</a></li>
+        <li><a href="#">Hoodies</a></li>
+        <li><a href="#">Tees</a></li>
+        <li><a href="#">Outerwear</a></li>
+        <li><a href="#">Bottoms</a></li>
+        <li><a href="#">Archive Sale</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>// System</h4>
+      <ul>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Manifesto</a></li>
+        <li><a href="#">Sustainability</a></li>
+        <li><a href="#">Careers</a></li>
+        <li><a href="#">Press</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>// Support</h4>
+      <ul>
+        <li><a href="#">Sizing Guide</a></li>
+        <li><a href="#">Shipping</a></li>
+        <li><a href="#">Returns</a></li>
+        <li><a href="#">Care Guide</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 NULL_BYTE. All rights reserved. &nbsp;|&nbsp; You have been logged.</span>
+    <div class="footer-legal">
+      <a href="#">Privacy</a>
+      <a href="#">Terms</a>
+      <a href="#">Cookies</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ══ CART SIDEBAR ══ -->
+<div class="cart-overlay" id="cartOverlay"></div>
+<div class="cart-sidebar" id="cartSidebar">
+  <div class="cart-header">
+    <h2 class="cart-title">YOUR BAG</h2>
+    <button class="cart-close" id="cartClose">✕</button>
+  </div>
+  <div class="cart-items" id="cartItemsList">
+    <div class="cart-empty-state" id="cartEmptyState">
+      <p>// BAG IS EMPTY</p>
+      <p>// add items to initialize</p>
+    </div>
+  </div>
+  <div class="cart-footer" id="cartFooter" style="display:none">
+    <div class="cart-total">
+      <span>TOTAL</span>
+      <span class="cart-total-price" id="cartTotalPrice">$0</span>
+    </div>
+    <button class="cart-checkout">EXECUTE CHECKOUT</button>
+  </div>
+</div>
+
+<script src="null_byte_main.js"></script>
+</body>
+</html>
